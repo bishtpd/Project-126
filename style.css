@@ -1,0 +1,17 @@
+body{
+    background-image: url("yydv.png");
+}
+
+#startbutton{
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: bold;
+    font-size: 25px;
+}
+canvas{
+    border-color: black;
+    border-style: dotted;
+    background-color: black;
+}
