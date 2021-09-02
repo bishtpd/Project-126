@@ -1,16 +1,18 @@
+music = "";
+music2 = "";
 leftwristscore = 0;
 rightwristscore = 0;
-leftwristx = 0;
-rightwristx = 0;
-leftwristy = 0;
-rightwristy = 0;
-music = "";
+leftwristxaxis = 0;
+rightwristxaxis = 0;
+leftwristyaxis = 0;
+rightwristyaxis = 0;
 function preload(){
     music = loadSound("music.mp3");
+    music2 = loadsound("music2.mp3")
 }
 function setup(){
-    canvas = createCanvas(650, 500);
-    canvas.position(600, 250);
+    canva = createCanvas(600, 500);
+    canva.position(650, 300);
     myvideo = createCapture(VIDEO);
     myvideo.hide();
     posenetinisialiser = ml5.poseNet(myvideo, poseNetloaded);
@@ -18,10 +20,21 @@ function setup(){
 
 }
 function poseNetloaded(){
-    console.log("PoseNet has been loaded.")
+    console.log("PoseNet loaded")
 }
 function draw(){
     image(myvideo, 0, 0, 600, 500);
+    //console.log("left score is" + leftwristscore);
+    if(leftwristscore > 0.002){
+        circle(leftwristxaxis, leftwristyaxis, 20);
+        console.log("leftwristcircle");
+        InNumberleftwristyaxis = Number(leftwristyaxis);
+        floorvalueleftyaxis = floor(InNumberleftwristyaxis);
+        console.log(floorvalueleftyaxis);
+        volume = (floorvalueleftyaxis/500);
+        music.setVolume(volume);
+        document.getElementById("volumedisplay").innerHTML = "Volume = " + volume + "";
+    }
 }
 function playmusic(){
     music.play();
@@ -31,7 +44,7 @@ function playmusic(){
 function gotposes(results){
     if(results.length > 0){
         console.log(results);
-        leftwristscore = results[0].pose.keypoints[9].score;
+            leftwristscore = results[0].pose.keypoints[9].score;
             leftwristxaxis = results[0].pose.leftWrist.x;
             leftwristyaxis = results[0].pose.leftWrist.y;
             rightwristscore = results[0].pose.keypoints[10].score;
