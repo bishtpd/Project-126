@@ -28,12 +28,7 @@ function draw(){
     if(leftwristscore > 0.002){
         circle(leftwristxaxis, leftwristyaxis, 20);
         console.log("leftwristcircle");
-        InNumberleftwristyaxis = Number(leftwristyaxis);
-        floorvalueleftyaxis = floor(InNumberleftwristyaxis);
-        console.log(floorvalueleftyaxis);
-        volume = (floorvalueleftyaxis/500);
-        music.setVolume(volume);
-        document.getElementById("volumedisplay").innerHTML = "Volume = " + volume + "";
+        function playmusic();
     }
 }
 function playmusic(){
