@@ -23,17 +23,26 @@ function poseNetloaded(){
     console.log("PoseNet loaded")
 }
 function draw(){
-    image(myvideo, 0, 0, 600, 500);
-    //console.log("left score is" + leftwristscore);
-    if(leftwristscore > 0.002){
-        circle(leftwristxaxis, leftwristyaxis, 20);
-        console.log("leftwristcircle");
-        function playmusic();
+    function draw(){
+        image(myvideo, 0, 0, 600, 500);
+        //console.log("left score is" + leftwristscore);
+        if(leftwristscore > 0.002){
+            circle(leftwristxaxis, leftwristyaxis, 20);
+            console.log("leftwristcircle");
+                
+        }
+
     }
+    
 }
 function playmusic(){
     music.play();
     music.setVolume(0.5);
+    music.rate(1);
+}
+function playemusic(){
+    music2.play();
+    music2.setVolume(0.5);
     music.rate(1);
 }
 function gotposes(results){
